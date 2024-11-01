@@ -2,7 +2,7 @@ import Login from 'screens/AuthScreens/Login'
 import Register from 'screens/AuthScreens/Register'
 import Dashboard from 'screens/DashboardScreens/Dashboard'
 import Home from 'screens/Home'
-import Update_User from 'screens/DashboardScreens/EditUser'
+import EditUser from 'screens/DashboardScreens/EditUser'
 
 
 const homeRoutes = [
@@ -38,7 +38,7 @@ const dashboardRoutes = [
   },
   {
     path: '/account-settings',
-    element: <Update_User />,
+    element: <EditUser />,
   },
 ]
 

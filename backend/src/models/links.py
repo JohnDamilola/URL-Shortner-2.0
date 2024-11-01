@@ -43,6 +43,10 @@ class Link(db.Model):
     expire_on = db.Column(db.DateTime(timezone=True), nullable=True)
     created_on = db.Column(db.DateTime(timezone=True), server_default=db.func.now(), nullable=False)
     updated_on = db.Column(db.DateTime(timezone=True), server_default=db.func.now(), nullable=False, server_onupdate=db.func.now())
+    visit_count = db.Column(db.Integer, default=0)  # Current visit count
+    max_visits = db.Column(db.Integer, default=999)  # Maximum number of visits before deactivation
+   
+    
 	# make a relationship with 'User' model
     user_id = db.Column(UUID(as_uuid=True), db.ForeignKey('users.id'))
 
@@ -62,7 +66,9 @@ class Link(db.Model):
         'expire_on':self.expire_on,
         'password_hash':self.password_hash,
         'created_on':self.created_on, 
-        'updated_on':self.updated_on
+        'updated_on':self.updated_on,   
+        'visit_count':self.visit_count,
+        'max_visits':self.max_visits
     }
 
     def __repr__(self):

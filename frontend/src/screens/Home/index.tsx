@@ -79,7 +79,7 @@ const Home = () => {
     }
     setIsLoading(true);
 		await http
-			.post(`/links/create_anonymous`, {
+		    .post(`http://localhost:5002/links/create_anonymous`, {
 				long_url: longUrl,
 			})
 			.then((res: any) => {
@@ -150,8 +150,8 @@ const Home = () => {
 									{!isLoading && shortenedUrl && (
 										<div className="result-pane">
 											<div className="link d-flex flex-wrap justify-content-between align-items-center">
-												<Link to={`/a/${shortenedUrl}`} rel="noreferrer" target="_blank">
-													<p>url-bit.web.app/a/{shortenedUrl}</p>
+												<Link to={`http://localhost:5002/${shortenedUrl}`} rel="noreferrer" target="_blank">
+													<p>http://localhost:5002/{shortenedUrl}</p>
 												</Link>
 												<button onClick={() => handleCopy(`url-bit.web.app/a/${shortenedUrl}`)}>
 													Copy <i className="ml-2 fas fa-copy"></i>

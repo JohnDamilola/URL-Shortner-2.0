@@ -46,7 +46,7 @@ const EditUser = () => {
 		setIsSubmitting(true);
 
 		await http
-			.patch(`/user/update/${id}`, payload)
+		    .patch(`http://localhost:5002/user/update/${id}`, payload)
 			.then((res) => {
         const { user } = res.data || {}
         window.localStorage.setItem('URLshortenerUser', JSON.stringify(user))
@@ -72,7 +72,7 @@ const EditUser = () => {
 	};
 	const handleDeleteAccount = async (id: any) => {
 		await http
-			.delete(`/user/delete/${id}`)
+		    .delete(`http://localhost:5002/user/delete/${id}`)
 			.then((res) => {
 				const { id } = res.data;
 				Swal.fire({

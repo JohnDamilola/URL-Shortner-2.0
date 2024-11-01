@@ -45,7 +45,7 @@ const RedirectionPage = () => {
   const updateLinkEngagement = async (link_id: any, utm_source: any, utm_medium: any, utm_campaign: any, utm_term: any, utm_content: any) => {
 		if (!endpoint2Called) {
       await http
-			.post(`/links/engagements/${link_id}/create`, {
+			.post(`http://localhost:5002/links/engagements/${link_id}/create`, {
         utm_source,
         utm_medium,
         utm_campaign,
@@ -56,7 +56,7 @@ const RedirectionPage = () => {
 	};
 
   const fetchURL = async () => {
-    const url = pathname.startsWith('/a/') ? `/links_anonymous/stub/${stub}` : `/links/stub/${stub}`
+    const url = pathname.startsWith('/a/') ? `http://localhost:5002/${stub}` : `http://localhost:5002/${stub}`
 		await http
 			.get(url)
 			.then(async(res) => {
